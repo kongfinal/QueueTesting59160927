@@ -37,10 +37,17 @@ test('สร้าง queue size 1 และ dequeue เลย จะต้อ�
     expect(queue.dequeue()).toBe(null);
 });
 
-// แก้ bug
-test('แก้ bug',function(){
-    const queue = new Queue(1);
-    expect(queue.enqueue()).toBe(false);
+// เจอ bug
+test('เจอ bug',function(){
+    const queue = new Queue(3);
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    queue.dequeue();
+    queue.enqueue(4);
+    queue.dequeue();
+    queue.dequeue();
+    expect(queue.dequeue()).toBe(4);
 });
 
 

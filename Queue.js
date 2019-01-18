@@ -20,12 +20,15 @@ class Queue {
     if(this.size == this.max) {
       return false;
     }
-    if(x == null){
-      return false;
-    }
+    //if(x == null){
+     // return false;
+    //}
     this.data[this.tail] = x;
     this.size++;
     this.tail++;
+    if(this.tail == this.max) {
+      this.tail = 0;
+    }
     return true;
   }
 // output:  ถ้า list มีข้อมูลจะ return ข้อมูล , ถ้า list ว่างจะ return null
@@ -37,7 +40,7 @@ class Queue {
     this.size--;
     this.head++;
     if(this.head == this.max) {
-      this.head==0;
+      this.head = 0;
     }
     return x;
   }
